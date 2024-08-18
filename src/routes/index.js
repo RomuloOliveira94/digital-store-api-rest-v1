@@ -5,8 +5,8 @@ import CategoryRoutes from "./CategoryRoutes.js";
 
 const router = express.Router();
 
-router.use("/users", UserRoutes);
-router.use("/products", ProductRoutes);
-router.use("/categories", CategoryRoutes);
+router.use("/user", UserRoutes);
+router.use("/product", ProductRoutes);
+router.use("/category", CategoryRoutes);
 
 export default router;

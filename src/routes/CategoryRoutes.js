@@ -8,7 +8,7 @@ import {
   deleteCategory,
 } from "../controllers/CategoryController.js";
 
-router.get("/", getCategories);
+router.get("/search", getCategories);
 router.get("/:id", getCategoryById);
 router.post("/", createCategory);
 router.put("/:id", updateCategory);

@@ -1,9 +1,33 @@
 import Category from "../models/Category.js";
 
-export const getAll = async () => {
+export const getAll = async (query) => {
   try {
-    const categories = await Category.findAll();
-    return categories;
+    let limit = query.limit || 12;
+    let page = query.page || 1;
+    let fields = query.fields.split(",") || ["name", "slug"];
+    let use_in_menu = query.use_in_menu || true;
+
+    if (limit === "-1") {
+      const categories = await Category.findAll({
+        attributes: fields,
+        where: { use_in_menu: use_in_menu },
+      });
+      return categories;
+    }
+
+    const categories = await Category.findAll({
+      attributes: fields,
+      where: { use_in_menu: use_in_menu },
+      limit: limit,
+      offset: (page - 1) * limit,
+    });
+
+    return {
+      data: categories,
+      limit: limit,
+      page: page,
+      total: categories.length,
+    };
   } catch (error) {
     return { message: error.message };
   }
@@ -12,6 +36,9 @@ export const getAll = async () => {
 export const findById = async (id) => {
   try {
     const category = await Category.findByPk(id);
+    if (!category) {
+      return { message: "Categoria não encontrada" };
+    }
     return category;
   } catch (error) {
     return { message: error.message };

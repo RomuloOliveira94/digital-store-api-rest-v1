@@ -8,7 +8,7 @@ import {
 
 export const getCategories = async (req, res) => {
   try {
-    const categories = await getAll();
+    const categories = await getAll(req.query);
     res.status(200).json(categories);
   } catch (error) {
     res.status(500).json({ message: error.message });
