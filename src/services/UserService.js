@@ -12,6 +12,9 @@ export const getAll = async () => {
 export const findById = async (id) => {
   try {
     const user = await User.findByPk(id);
+    if (!user) {
+      return { message: "Usuário não encontrado" };
+    }
     return user;
   } catch (error) {
     return { message: error.message };
