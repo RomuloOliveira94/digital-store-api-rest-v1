@@ -24,10 +24,8 @@ const Image = sequelize.define(
     timestamps: true,
   }
 );
-
 (async () => {
   await Image.sync();
-  Image.belongsTo(Product);
 })();
 
 export default Image;

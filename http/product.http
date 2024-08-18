@@ -1,0 +1,96 @@
+###list product
+GET http://localhost:3001/api/product/search?limit=3&page=1&fields=name
+
+###product by id
+GET http://localhost:3001/api/product/7
+
+###add product
+POST http://localhost:3001/api/product
+Content-Type: application/json
+
+{
+    "enabled": true,
+    "name": "Produto 01",
+    "slug": "produto-01",
+    "stock": 10,
+    "description": "Descrição do produto 01",
+    "price": 119.90,
+    "price_with_discount": 99.90,
+    "categories": [1,2],
+    "images": [ 
+      {
+        "enabled": true,
+        "url": "base64 da imagem 1" 
+      },
+      {
+        "enabled": false,
+        "url": "base64 da imagem 2" 
+      },
+      {
+        "enabled": false,
+        "url": "base64 da imagem 3" 
+      }
+    ],
+    "product_options": [
+      {
+        "title": "Cor",
+        "shape": "square",
+        "radius": "4px",
+        "type": "text",
+        "values": "PP, GG, M"
+      },
+      {
+        "title": "Tamanho",
+        "shape": "circle",
+        "type": "color",
+        "values": "#000, #333"
+      }
+    ]
+  }
+
+###update product
+PUT http://localhost:3001/api/product/4
+Content-Type: application/json
+
+{
+    "enabled": true,
+    "name": "Produto 3",
+    "slug": "produto-01",
+    "stock": 10,
+    "description": "Descrição do produto 01",
+    "price": 119.90,
+    "price_with_discount": 99.90,
+    "categories": [1,2,3,4],
+    "images": [ 
+      {
+        "type": "image/png",
+        "content": "base64 da imagem 1" 
+      },
+      {
+        "type": "image/png",
+        "content": "base64 da imagem 2" 
+      },
+      {
+        "type": "image/jpg",
+        "content": "base64 da imagem 3" 
+      }
+    ],
+    "options": [
+      {
+        "title": "Cor",
+        "shape": "square",
+        "radius": "4px",
+        "type": "text",
+        "value": ["PP", "GG", "M"]
+      },
+      {
+        "title": "Tamanho",
+        "shape": "circle",
+        "type": "color",
+        "values": ["#000", "#333"]
+      }
+    ]
+  }
+
+###delete product
+DELETE http://localhost:3001/api/product/5

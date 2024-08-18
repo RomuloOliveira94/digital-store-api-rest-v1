@@ -8,6 +8,7 @@ const Category = sequelize.define(
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
+      allowNull: false,
       primaryKey: true,
     },
     name: {
@@ -31,7 +32,6 @@ const Category = sequelize.define(
 
 (async () => {
   await Category.sync();
-  Category.belongsToMany(Product, { through: "product_category" });
 })();
 
 export default Category;

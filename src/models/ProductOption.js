@@ -36,8 +36,6 @@ const ProductOption = sequelize.define(
   }
 );
 
-ProductOption.belongsTo(Product);
-
 (async () => {
   await ProductOption.sync();
 })();

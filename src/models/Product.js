@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 import Image from "./Image.js";
 import Category from "./Category.js";
+import ProductOption from "./ProductOption.js";
 
 const Product = sequelize.define(
   "product",
@@ -51,10 +52,23 @@ const Product = sequelize.define(
   }
 );
 
+Product.hasMany(Image, {
+  constraints: false,
+});
+
+
+Product.hasMany(ProductOption, {
+  constraints: false,
+});
+
+Product.belongsToMany(Category, {
+  through: "category_product",
+  constraint: true,
+  as: "categories",
+});
+
 (async () => {
-  await Product.sync();
-  Product.hasMany(Image);
-  Product.belongsToMany(Category, { through: "product_category" });
+  await await Product.sync();
 })();
 
 export default Product;

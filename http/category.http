@@ -9,8 +9,8 @@ POST http://localhost:3001/api/category
 Content-Type: application/json
 
 {
-  "name": "teste 4",
-  "slug": "teste-4",
+  "name": "teste 5",
+  "slug": "teste-5",
   "use_in_menu": true
 }
 
