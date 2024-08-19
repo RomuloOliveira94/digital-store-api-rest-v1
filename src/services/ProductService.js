@@ -8,7 +8,9 @@ export const getAll = async (query) => {
     ? query.fields.split(",")
     : ["name", "images", "price"];
   let match = query.match || "";
-  let category_ids = query.category_ids ? query.category_ids.split(",") : [];
+  let category_ids = query.category_ids
+    ? query.category_ids.split(",").map((id) => parseInt(id))
+    : [];
   let price_range = query.price_range
     ? query.price_range.split("-").map((price) => parseFloat(price))
     : [0, 1000000];
