@@ -55,16 +55,29 @@ node --run dev or npm run dev
 
 <h2 id="routes">📍 API Endpoints</h2>
 
-<h3 id="get-auth-detail">GET /user/register</h3>
+<h3>User Routes</h3>
+
+<h3>GET api/user/register</h3>
+
+**REQUEST**
+```json
+{
+  "firstname": "teste",
+  "surname": "teste",
+  "email": "test@test.com",
+} 
+```
 
 **RESPONSE**
 ```json
 {
-  
-}
+  "firstname": "teste",
+  "surname": "teste",
+  "email": "test@test.com",
+}  
 ```
 
-<h3 id="post-auth-detail">POST /user/token</h3>
+<h3>POST api/user/token</h3>
 
 **REQUEST**
 ```json
@@ -80,3 +93,74 @@ node --run dev or npm run dev
   "token": "OwoMRHsaQwyAgVoc3OXmL1JhMVUYXGGBbCTK0GBgiYitwQwjf0gVoBmkbuyy0pSi"
 }
 ```
+<h3>GET api/user</h3>
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "firstname": "teste2",
+    "surname": "teste2",
+    "email": "user2@mail.com"
+  },
+  {
+    "id": 3,
+    "firstname": "teste4",
+    "surname": "teste4",
+    "email": "user4@mail.com"
+  },
+  {
+    "id": 4,
+    "firstname": "mudei carai",
+    "surname": "teste4",
+    "email": "user4@mail.com"
+  },
+  {
+    "id": 5,
+    "firstname": "teste4",
+    "surname": "teste4",
+    "email": "user4@mail.com"
+  }
+]
+```
+
+<h3>GET api/user/1</h3>
+
+**RESPONSE**
+```json
+{
+  "firstname": "teste",
+  "surname": "teste",
+  "email": "test@test.com",
+}  
+```
+
+<h3>PUT api/user/1</h3>
+
+**REQUEST**
+```json
+{
+   "firstname": "teste2",
+  "password: "112233"
+}
+```
+
+**RESPONSE**
+```json
+{
+  "firstname": "teste2",
+  "surname": "teste",
+  "email": "test@test.com",
+}  
+```
+
+<h3>DELETE api/user/1</h3>
+
+**RESPONSE**
+```json
+{
+  "message": "Usuário deletado com sucesso"
+}
+```
+
