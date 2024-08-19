@@ -251,7 +251,7 @@ node --run dev or npm run dev
   "updatedAt": "2024-08-19T14:10:46.514Z",
   "createdAt": "2024-08-19T14:10:46.514Z"
 }
-``
+```
 
 <h3>PUT /api/category/1</h3>
 
@@ -264,7 +264,7 @@ node --run dev or npm run dev
   "slug": "teste-5",
   "use_in_menu": false
 }
-````
+```
 
 **RESPONSE**
 
