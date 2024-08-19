@@ -551,7 +551,7 @@ node --run dev or npm run dev
 
 **RESPONSE**
 
-````json
+```json
 {
   "id": 6,
   "name": "teste 5",
@@ -593,4 +593,4 @@ node --run dev or npm run dev
 ```json
 { "message": "Categoria deletada com sucesso" }
 ```
-`````
+
