@@ -4,7 +4,9 @@ import jwt from "jsonwebtoken";
 
 export const getAll = async () => {
   try {
-    const users = await User.findAll();
+    const users = await User.findAll({
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+    });
     return users;
   } catch (error) {
     return { message: error.message };
@@ -13,7 +15,9 @@ export const getAll = async () => {
 
 export const findById = async (id) => {
   try {
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id, {
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+    });
     if (!user) {
       return { message: "Usuário não encontrado" };
     }
@@ -27,7 +31,9 @@ export const create = async (data) => {
   try {
     let password = await bcrypt.hash(data.password, 10);
     data.password = password;
-    const user = await User.create(data);
+    const user = await User.create(data, {
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+    });
     return user;
   } catch (error) {
     return { message: error.message };
@@ -36,7 +42,9 @@ export const create = async (data) => {
 
 export const update = async (id, data) => {
   try {
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id, {
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+    });
     if (user) {
       await user.update(data);
       return user;
