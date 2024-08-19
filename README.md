@@ -85,8 +85,8 @@ node --run dev or npm run dev
 
 ```json
 {
-   "email": test@test.com,
-  "password: "test123"
+  "email": "test@test.com",
+  "password": "test123"
 }
 ```
 
