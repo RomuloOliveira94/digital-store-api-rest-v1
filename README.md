@@ -374,7 +374,7 @@ node --run dev or npm run dev
 
 **RESPONSE**
 
-`````json
+```json
 {
   "id": 7,
   "enabled": true,
