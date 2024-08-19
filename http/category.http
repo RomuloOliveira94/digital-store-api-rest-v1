@@ -1,12 +1,12 @@
 ###list category
-GET http://localhost:3001/api/category/search?limit=3&page=1&fields=name
-
+GET http://localhost:3001/api/category/search?use_in_menu=false
 ###category by id
 GET http://localhost:3001/api/category/1
 
 ###add category
 POST http://localhost:3001/api/category
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzI0MDI2MDk1LCJleHAiOjE3MjQ2MzA4OTV9.RoBMowy3IDk_6fveRboCyYnw5oqJ7QetcHjBNaTF54M
 
 {
   "name": "teste 5",

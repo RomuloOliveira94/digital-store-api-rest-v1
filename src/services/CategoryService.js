@@ -4,15 +4,24 @@ export const getAll = async (query) => {
   try {
     let limit = query.limit || 12;
     let page = query.page || 1;
-    let fields = query.fields.split(",") || ["name", "slug"];
-    let use_in_menu = query.use_in_menu || true;
+    let fields = query.fields
+      ? query.fields.split(",")
+      : ["name", "slug", "use_in_menu"];
+    let use_in_menu = query.use_in_menu == "false" ? false : true;
+
 
     if (limit === "-1") {
       const categories = await Category.findAll({
         attributes: fields,
         where: { use_in_menu: use_in_menu },
       });
-      return categories;
+
+      return {
+        data: categories,
+        limit: limit,
+        page: page,
+        total: categories.length,
+      };
     }
 
     const categories = await Category.findAll({

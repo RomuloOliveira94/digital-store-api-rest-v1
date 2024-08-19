@@ -8,7 +8,7 @@ import {
 
 export const getProducts = async (req, res) => {
   try {
-    const products = await getAll();
+    const products = await getAll(req.query);
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
