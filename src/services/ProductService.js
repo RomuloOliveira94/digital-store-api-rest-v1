@@ -53,6 +53,7 @@ export const getAll = async (query) => {
     if (limit === "-1") {
       const products = await Product.findAll({
         include: ["categories", "images", "product_options"],
+        attributes: fields,
         where: whereClause,
       });
 
@@ -66,6 +67,7 @@ export const getAll = async (query) => {
 
     const products = await Product.findAll({
       include: ["categories", "images", "product_options"],
+      attributes: fields,
       limit: limit,
       offset: (page - 1) * limit,
       subQuery: false,
