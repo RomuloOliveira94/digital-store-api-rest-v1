@@ -38,7 +38,7 @@ git clone https://github.com/RomuloOliveira94/digital-store-api-rest-v1
 
 <h3>Config .env variables</h2>
 
-Use the `.env.example` as reference to create your configuration file `.env` 
+Use the `.env.example` as reference to create your configuration file `.env`
 
 ```yaml
 PORT=3000
@@ -60,26 +60,29 @@ node --run dev or npm run dev
 <h3>GET api/user/register</h3>
 
 **REQUEST**
+
 ```json
 {
   "firstname": "teste",
   "surname": "teste",
-  "email": "test@test.com",
-} 
+  "email": "test@test.com"
+}
 ```
 
 **RESPONSE**
+
 ```json
 {
   "firstname": "teste",
   "surname": "teste",
-  "email": "test@test.com",
-}  
+  "email": "test@test.com"
+}
 ```
 
 <h3>POST api/user/token</h3>
 
 **REQUEST**
+
 ```json
 {
    "email": test@test.com,
@@ -88,14 +91,17 @@ node --run dev or npm run dev
 ```
 
 **RESPONSE**
+
 ```json
 {
   "token": "OwoMRHsaQwyAgVoc3OXmL1JhMVUYXGGBbCTK0GBgiYitwQwjf0gVoBmkbuyy0pSi"
 }
 ```
+
 <h3>GET api/user</h3>
 
 **RESPONSE**
+
 ```json
 [
   {
@@ -128,17 +134,19 @@ node --run dev or npm run dev
 <h3>GET api/user/1</h3>
 
 **RESPONSE**
+
 ```json
 {
   "firstname": "teste",
   "surname": "teste",
-  "email": "test@test.com",
-}  
+  "email": "test@test.com"
+}
 ```
 
 <h3>PUT api/user/1</h3>
 
 **REQUEST**
+
 ```json
 {
    "firstname": "teste2",
@@ -147,20 +155,132 @@ node --run dev or npm run dev
 ```
 
 **RESPONSE**
+
 ```json
 {
   "firstname": "teste2",
   "surname": "teste",
-  "email": "test@test.com",
-}  
+  "email": "test@test.com"
+}
 ```
 
 <h3>DELETE api/user/1</h3>
 
 **RESPONSE**
+
 ```json
 {
   "message": "Usuário deletado com sucesso"
 }
 ```
 
+<h3>Category Routes</h3>
+
+<h3>GET /api/category/search</h3>
+
+<h4>Params:</h4>
+
+<ul>
+  <li>limit (int)</li>
+  <li>page (int)</li>
+  <li>fields (string)</li>
+  <li>use_in_menu (boolean)</li>
+</ul>
+
+**REQUEST**
+
+/api/product/search?limit=3&page=1&fields=name
+
+**RESPONSE**
+
+```json
+{
+  "data": [
+    {
+      "name": "teste 1"
+    },
+    {
+      "name": "teste 2"
+    },
+    {
+      "name": "teste 3"
+    }
+  ],
+  "limit": "3",
+  "page": "1",
+  "total": 3
+}
+```
+
+<h3>GET /api/category/1</h3>
+
+**RESPONSE**
+
+```json
+{
+  "id": 1,
+  "name": "teste 1",
+  "slug": "teste-1",
+  "use_in_menu": true,
+  "createdAt": "2024-08-18T23:22:45.453Z",
+  "updatedAt": "2024-08-18T23:22:45.453Z"
+}
+```
+
+<h3>POST /api/category</h3>
+
+**REQUEST**
+
+```json
+{
+  "id": 6,
+  "name": "teste 5",
+  "slug": "teste-5",
+  "use_in_menu": true
+}
+```
+
+**RESPONSE**
+
+````json
+{
+  "id": 6,
+  "name": "teste 5",
+  "slug": "teste-5",
+  "use_in_menu": true,
+  "updatedAt": "2024-08-19T14:10:46.514Z",
+  "createdAt": "2024-08-19T14:10:46.514Z"
+}
+``
+
+<h3>PUT /api/category/1</h3>
+
+**REQUEST**
+
+```json
+{
+  "id": 6,
+  "name": "teste 5.1",
+  "slug": "teste-5",
+  "use_in_menu": false
+}
+````
+
+**RESPONSE**
+
+```json
+{
+  "id": 6,
+  "name": "teste 5.1",
+  "slug": "teste-5",
+  "use_in_menu": false,
+  "updatedAt": "2024-08-19T14:10:46.514Z",
+  "createdAt": "2024-08-19T14:10:46.514Z"
+}
+```
+
+<h3>DELETE /api/category/1</h3>
+
+```json
+{ "message": "Categoria deletada com sucesso" }
+```
