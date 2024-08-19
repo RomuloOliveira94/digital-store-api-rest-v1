@@ -7,6 +7,7 @@ GET http://localhost:3001/api/product/7
 ###add product
 POST http://localhost:3001/api/product
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzI0MDI2MDk1LCJleHAiOjE3MjQ2MzA4OTV9.RoBMowy3IDk_6fveRboCyYnw5oqJ7QetcHjBNaTF54M
 
 {
     "enabled": true,

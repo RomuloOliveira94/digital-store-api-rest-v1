@@ -4,6 +4,7 @@ import {
   create,
   update,
   deleteById,
+  auth,
 } from "../services/UserService.js";
 
 export const getUsers = async (req, res) => {
@@ -46,6 +47,16 @@ export const deleteUser = async (req, res) => {
   try {
     const message = await deleteById(req.params.id);
     res.status(200).json(message);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const token = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const token = await auth(email, password);
+    res.status(200).json(token);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

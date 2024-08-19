@@ -1,30 +1,41 @@
-###list users
-GET http://localhost:3001/api/users
+###list user
+GET http://localhost:3001/api/user
 
 ###user by id
-GET http://localhost:3001/api/users/2
+GET http://localhost:3001/api/user/2
 
 ###add user
-POST http://localhost:3001/api/users
+POST http://localhost:3001/api/user/register
 Content-Type: application/json
 
 {
-  "firstname": "teste2",
-  "surname": "teste2",
-  "email": "user2@mail.com",
+  "firstname": "teste4",
+  "surname": "teste4",
+  "email": "user4@mail.com",
   "password": "123@123"
 }  
 
 ###update user
-PUT http://localhost:3001/api/users/1
+PUT http://localhost:3001/api/user/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzI0MDI2MDk1LCJleHAiOjE3MjQ2MzA4OTV9.RoBMowy3IDk_6fveRboCyYnw5oqJ7QetcHjBNaTF54M
+
+{
+  "firstname": "mudei carai"
+}  
+
+###delete user
+DELETE http://localhost:3001/api/user/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzI0MDI2MDk1LCJleHAiOjE3MjQ2MzA4OTV9.RoBMowy3IDk_6fveRboCyYnw5oqJ7QetcHjBNaTF54M
+
+###login
+POST http://localhost:3001/api/user/token
 Content-Type: application/json
 
 {
   "firstname": "mudei carai",
   "surname": "user surname",
-  "email": "user@mail.com",
+  "email": "user4@mail.com",
   "password": "123@123"
 }  
-
-###delete user
-DELETE http://localhost:3001/api/users/2
